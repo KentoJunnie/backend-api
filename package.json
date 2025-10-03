@@ -1,0 +1,42 @@
+{
+  "name": "backend-api",
+  "version": "1.0.0",
+  "description": "Bufood backend API",
+  "author": "RufBenisceNasol",
+  "main": "server.js",
+  "scripts": {
+    "start": "node scripts/init.js && node server.js",
+    "dev": "node scripts/init.js && nodemon server.js",
+    "test": "jest"
+  },
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "apicache": "^1.6.3",
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^1.41.3",
+    "compression": "^1.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^6.11.2",
+    "express-slow-down": "^1.6.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.1",
+    "redis": "^4.7.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
