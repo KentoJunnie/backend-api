@@ -7,24 +7,38 @@ const logFormat = winston.format.combine(
     winston.format.json()
 );
 
-// Create logger instance
-const logger = winston.createLogger({
-    format: logFormat,
-    transports: [
+// Build transports dynamically to support environments with read-only FS (e.g., Vercel)
+const transports = [];
+
+// Always log to console
+transports.push(
+    new winston.transports.Console({
+        format: winston.format.combine(
+            winston.format.colorize(),
+            winston.format.simple()
+        )
+    })
+);
+
+// Enable file logging only if explicitly requested
+if (process.env.ENABLE_FILE_LOGS === 'true') {
+    transports.push(
         new winston.transports.File({
             filename: path.join(__dirname, '../logs/error.log'),
             level: 'error'
-        }),
+        })
+    );
+    transports.push(
         new winston.transports.File({
             filename: path.join(__dirname, '../logs/combined.log')
-        }),
-        new winston.transports.Console({
-            format: winston.format.combine(
-                winston.format.colorize(),
-                winston.format.simple()
-            )
         })
-    ]
+    );
+}
+
+// Create logger instance
+const logger = winston.createLogger({
+    format: logFormat,
+    transports
 });
 
 // Request logging middleware
