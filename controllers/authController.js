@@ -387,7 +387,7 @@ const verifyEmail = async (req, res) => {
   }
 };
 
-// Resend verification email
+// Resend verification email.
 const resendVerificationEmail = async (req, res) => {
   try {
     const { email } = req.body;
