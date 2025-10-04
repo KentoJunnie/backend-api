@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node scripts/init.js && node server.js",
     "dev": "node scripts/init.js && nodemon server.js",
+    "build": "echo 'No build step for backend'",
     "test": "jest"
   },
   "license": "ISC",
@@ -34,9 +35,13 @@
     "redis": "^4.7.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.3",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

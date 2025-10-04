@@ -1,0 +1,34 @@
+[build]
+  command = "npm install"
+  functions = "netlify/functions"
+  publish = "."
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["bcryptjs", "mongoose", "cloudinary", "redis"]
+
+# Route API traffic to the single serverless function that wraps Express
+[[redirects]]
+  from = "/api"
+  to = "/.netlify/functions/server/api"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/api/:splat"
+  status = 200
+  force = true
+
+# Backend-only: route everything else to the same function
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/server/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
+  force = true
