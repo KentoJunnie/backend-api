@@ -75,7 +75,7 @@ app.use(compression());
 const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:5173',
-    'https://https://delibup.netlify.app',
+    'https://delibup.netlify.app',
     'capacitor://localhost',
     'http://localhost',
     'https://localhost',
